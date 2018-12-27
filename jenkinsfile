@@ -16,11 +16,10 @@ pipeline {
               cp linux-amd64/helm /usr/bin
               helm version
               helm install ./httpd --version=1.0
-              helm repo update
-              helm list
-              helm repo update
-              helm list 
-              '''  
+              helm init --client-only
+	      helm list
+	      helm repo update
+		'''  
              }
             }
         }  
