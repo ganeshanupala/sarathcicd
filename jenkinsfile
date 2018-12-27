@@ -15,9 +15,9 @@ pipeline {
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
               cp linux-amd64/helm /usr/bin
               helm version
+              helm install ./httpd --version=1.0
               helm repo update
               helm list
-              helm upgrade httpd ./httpd  --version=3.0
               helm repo update
               helm list 
               '''  
