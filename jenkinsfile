@@ -1,27 +1,21 @@
-//Library(['pipeline-utilities']) _
- 
 pipeline {
- // agent any
-    agent {
+     agent {
         label 'maven'
     }
-    //options {
-      //  skipDefaultCheckout()
-       // buildDiscarder(logRotator(numToKeepStr: '10'))
-   // }
- 
-   // environment {
-   //     EMAIL_RECIPIENTS = "Pauny.Tran@Ally.com"
-   //     String gitCredentialsId="bitbucket-svc-readonly-ssh"
-   //     String repoURL="ssh://git@bitbucket-dev.int.ally.com:7999/~kzt1vp/test-repo_new.git"
-   // }
     stages {
-        stage('Checkout') {
+        stage('test') {
             steps {
-                checkout scm
-              echo "xxxxxxxxxxxxx"
-               sh "mvn -version"
-                //sh "getArtifact.sh"
+               echo "xxxxxxxxxxxxx"
+               sh '''
+               mvn -version
+               mvn -version
+              oc login https://master:8443 --token=jDuWv21J3fU6TZNO7-cdgKCcgrNHjst8hJH7UfL4q_E --insecure-skip-tls-verify=true
+              oc project jenkins
+              wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz
+              tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
+              cp linux-amd64/helm /usr/bin
+              helm version
+              '''  
              }
             }
         }  
