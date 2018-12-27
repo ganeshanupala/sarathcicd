@@ -5,16 +5,21 @@ pipeline {
     stages {
         stage('test') {
             steps {
-               echo "xxxxxxxxxxxxx"
-               sh '''
-               mvn -version
-               mvn -version
+               
+              echo "xxxxxxxxxxxxx"
+              sh '''
+              mvn -version
               oc login https://master:8443 --token=jDuWv21J3fU6TZNO7-cdgKCcgrNHjst8hJH7UfL4q_E --insecure-skip-tls-verify=true
               oc project jenkins
               wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
               cp linux-amd64/helm /usr/bin
               helm version
+              helm repo update
+              helm list
+              helm upgrade httpd ./httpd  --version=3.0
+              helm repo update
+              helm list 
               '''  
              }
             }
