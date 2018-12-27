@@ -1,0 +1,8 @@
+description: An example httpd application , no need of buildconfig and image stream  yaml if you are going to build from existing images
+home: https://access.redhat.com
+keywords:
+- quickstart
+- httpd
+name: httpd
+sources:
+version: "1.0"
