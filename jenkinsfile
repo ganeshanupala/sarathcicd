@@ -9,7 +9,7 @@ pipeline {
               echo "xxxxxxxxxxxxx"
               sh '''
               mvn -version
-              mvn package
+             # mvn package
 		echo "testing"
 		
               ls -lrt 
@@ -19,7 +19,7 @@ pipeline {
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
 	      cp linux-amd64/helm /usr/bin
               git clone https://github.com/SARATH1994/hello-world.git
- 	      mv hello-world/README.md index.html
+ 	      mv hello-world/README.md hello-world/index.html
 	      helm version
               helm del --purge httpd
 	      helm install ./httpd --version=1.0 --name=httpd
@@ -27,9 +27,10 @@ pipeline {
 	      helm repo update 
               helm list
 	      sleep 30
+	     cd hello-world
 	      x=`oc get pods | grep httpd | cut -d " " -f1`
               echo $x
-              oc rsync ./index.html "$x":/var/www/html --exclude=* --include=index.html
+              oc rsync . "$x":/var/www/html --exclude=* --include=index.html
 	      
 		'''  
              }
