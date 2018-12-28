@@ -9,11 +9,8 @@ pipeline {
               echo "xxxxxxxxxxxxx"
               sh '''
               mvn -version
-	      mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-	      cd my-app
               mvn package
 		echo "testing"
-		java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 		
               ls -lrt 
               oc login https://master:8443 --token=ZTt5C4AjnngN3gAnsdzVEEI-J0T8dT7mhZawFlxe5NE --insecure-skip-tls-verify=true
