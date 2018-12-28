@@ -24,6 +24,9 @@ pipeline {
               helm del --purge httpd
 	      helm install ./httpd --version=1.0 --name=httpd
               helm init --client-only
+	      helm repo update 
+              helm list
+	      sleep 30
 	      x=`oc get pods | grep httpd | cut -d " " -f1`
               echo $x
               oc rsync ./hello-world "$x":/var/www/html --exclude=* --include=index.html
