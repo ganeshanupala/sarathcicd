@@ -9,7 +9,7 @@ pipeline {
               echo "xxxxxxxxxxxxx"
               sh '''
               mvn -version
-              oc login https://master:8443 --token=jDuWv21J3fU6TZNO7-cdgKCcgrNHjst8hJH7UfL4q_E --insecure-skip-tls-verify=true
+              oc login https://master:8443 --token=ZTt5C4AjnngN3gAnsdzVEEI-J0T8dT7mhZawFlxe5NE --insecure-skip-tls-verify=true
               oc project jenkins
               wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
