@@ -19,7 +19,7 @@ pipeline {
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
 	      cp linux-amd64/helm /usr/bin
               git clone https://github.com/SARATH1994/hello-world.git
- 	      mv hello-world/README.md hello-world/index.html
+ 	      mv hello-world/README.md index.html
 	      helm version
               helm del --purge httpd
 	      helm install ./httpd --version=1.0 --name=httpd
@@ -29,7 +29,7 @@ pipeline {
 	      sleep 30
 	      x=`oc get pods | grep httpd | cut -d " " -f1`
               echo $x
-              oc rsync ./hello-world "$x":/var/www/html --exclude=* --include=index.html
+              oc rsync ./index.html "$x":/var/www/html --exclude=* --include=index.html
 	      
 		'''  
              }
