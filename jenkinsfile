@@ -14,7 +14,7 @@ pipeline {
 		
               ls -lrt 
               #oc login https://master:8443 --token=ZTt5C4AjnngN3gAnsdzVEEI-J0T8dT7mhZawFlxe5NE --insecure-skip-tls-verify=true
-              oc login -u system:admin -n default
+              oc login  https://master:8443 -u system:admin -n default
 	      oc project jenkins
               wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
