@@ -3,4 +3,4 @@ name: httpd
 # Memory Limit: Maximum amount of memory the container can use.
 memory_limit: 512Mi
 # Application Hostname: The exposed hostname that will route to the Node.js service, if left blank a value will be defaulted.
-application_domain: httpd-jenkins.apps.haneefmohamedta.com
+application_domain: httpd.apps.anukumar.net 
