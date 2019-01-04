@@ -18,7 +18,7 @@ pipeline {
 	      oc project jenkins
               #wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz
               curl -s https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-darwin-amd64.tar.gz | tar xz
-		tar -zxvf helm-v2.12.1-darwin-amd64.tar.gz
+		#tar -zxvf helm-v2.12.1-darwin-amd64.tar.gz
 	      cp darwin-amd64/helm /usr/bin
               git clone https://github.com/SARATH1994/hello-world.git
  	      mv hello-world/README.md hello-world/index.html
