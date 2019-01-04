@@ -23,9 +23,10 @@ pipeline {
  	      mv hello-world/README.md hello-world/index.html
 	     helm init --client-only 
 	     helm version
-              helm del --purge httpd  || true
-	      helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
-	      helm repo update 
+              #helm del --purge httpd  || true
+	      #helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
+	 helm upgrade httpd httpd-1.0 --version=2.0      
+	helm repo update 
 	     rm -rf hello-world/.git
 	           
 		sleep 30
