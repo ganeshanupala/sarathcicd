@@ -15,16 +15,16 @@ pipeline {
               ls -lrt 
 	      oc projects || true
               oc login https://master:8443 --token=yfQ_k_kHQ45cGHAUJAF0aXKOP-Ib-qMxWilNd1r4Ov4 --insecure-skip-tls-verify=true
-	      oc project jenkins
+	      oc project tiller
               wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz
               tar -zxvf helm-v2.12.1-linux-amd64.tar.gz
 	      cp linux-amd64/helm /usr/bin
               git clone https://github.com/SARATH1994/hello-world.git
  	      mv hello-world/README.md hello-world/index.html
 	     helm init --client-only 
-	     helm --tiller-namespace tiller version
-              helm del --purge httpd || true
-	      helm install ./httpd --version=1.0 --name=httpd
+	     helm version
+              helm del --purge httpd --namespace=jenkins || true
+	      helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
 	      helm repo update 
 	      cd hello-world
 	     rm -rf .git
