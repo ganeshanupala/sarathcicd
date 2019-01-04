@@ -21,7 +21,8 @@ pipeline {
 	      cp linux-amd64/helm /usr/bin
               git clone https://github.com/SARATH1994/hello-world.git
  	      mv hello-world/README.md hello-world/index.html
-	      helm version
+	     helm init --client-only 
+	     helm version
               helm del --purge httpd || true
 	      helm install ./httpd --version=1.0 --name=httpd
               helm init --client-only
