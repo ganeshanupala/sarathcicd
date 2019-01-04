@@ -23,7 +23,7 @@ pipeline {
  	      mv hello-world/README.md hello-world/index.html
 	     helm init --client-only 
 	     helm version
-              helm del --purge httpd --namespace=jenkins || true
+              helm del --purge httpd  || true
 	      helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
 	      helm repo update 
 	      cd hello-world
