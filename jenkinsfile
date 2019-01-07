@@ -22,8 +22,8 @@ pipeline {
 	     helm init --client-only 
 	     helm version
               helm del --purge httpd  || true
-		#oc start-build web --from-file=index.html
-		oc start-build tomcat --from-dir=sample
+		oc start-build web --from-file=index.html
+		#oc start-build tomcat --from-dir=sample
 		sleep 30 
 	      helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
 	helm repo update 
