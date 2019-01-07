@@ -14,26 +14,22 @@ pipeline {
 		
               ls -lrt 
 	      oc projects || true
-              oc login https://master:8443 --token=yfQ_k_kHQ45cGHAUJAF0aXKOP-Ib-qMxWilNd1r4Ov4 --insecure-skip-tls-verify=true
+              oc login https://master:8443 --token=hlgwv_VXj9Vf1Y1aLfCb9to_JV-srkFYEyrLRgYlPR0 --insecure-skip-tls-verify=true
 	      oc project jenkins
 		curl -s https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz | tar xz
 		#tar -zxvf helm-v2.12.1-darwin-amd64.tar.gz
 	      cp linux-amd64/helm /usr/bin
-              git clone https://github.com/SARATH1994/hello-world.git
- 	      mv hello-world/README.md hello-world/index.html
 	     helm init --client-only 
 	     helm version
-              #helm del --purge httpd  || true
-	      #helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
-	 helm upgrade httpd httpd-1.0 --version=2.0      
+              helm del --purge httpd  || true
+		oc start-build web --from-file=index.html
+		sleep 30 
+	      helm install ./httpd --version=1.0 --name=httpd --namespace=jenkins
 	helm repo update 
-	     rm -rf hello-world/.git
-	           
-		sleep 30
 		
-	      x=`oc get pods | grep httpd | cut -d " " -f1`
-              echo $x
-              oc rsync ./hello-world "$x":/var/www/html --exclude=* --include=index.html
+	     # x=`oc get pods | grep httpd | cut -d " " -f1`
+             # echo $x
+             # oc rsync ./hello-world "$x":/var/www/html --exclude=* --include=index.html
 	      
 		'''  
              }
