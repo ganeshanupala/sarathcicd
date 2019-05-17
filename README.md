@@ -17,7 +17,7 @@ This README would normally document whatever steps are necessary to get your app
 * How to run tests
 * Deployment instructions
 
-### Contribution guidelines ###hghxgft
+### Contribution guidelineghhs ###hghxgft
 
 * Writing tests
 * Code review
