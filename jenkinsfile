@@ -6,7 +6,7 @@ pipeline {
         stage('test') {
             steps {
                
-              echo "xxxxxxxxxxxxx"
+              echo "xxxxxxxxxx"
               sh '''
               mvn -version
              # mvn package
