@@ -14,7 +14,7 @@ pipeline {
 		
               ls -lrt 
 	      oc projects || true
-              oc login https://masterpoc.anupala.com:8443 --token=ntpjgAr-UCbMcV3G-Gro5X_XX7VqBoUk-Kgedfd0_y0  --insecure-skip-tls-verify=true
+              oc login https://masterpoc.anupala.com:8443 --token=c_f_N9zdR8UUYzhSY8pZ8H-lHSoY3GfvNijZYCjgtw8  --insecure-skip-tls-verify=true
 	      oc project jenkinspoc
 		curl -s https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz | tar xz
 		#tar -zxvf helm-v2.12.1-darwin-amd64.tar.gz
