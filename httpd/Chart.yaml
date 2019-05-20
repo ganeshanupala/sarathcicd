@@ -2,7 +2,7 @@ description: An example httpd application , no need of buildconfig and image str
 home: https://access.redhat.com
 keywords:
 - quickstart
-- httpd
-name: httpd
+- httpd-example
+name: httpd-example
 sources:
 version: "1.0"

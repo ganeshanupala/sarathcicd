@@ -1,4 +1,5 @@
 kind: Route
+#apiVersion: route.openshift.io/v1
 apiVersion: route.openshift.io/v1
 metadata:
   name: {{ .Values.name | quote }}
@@ -7,3 +8,14 @@ spec:
   to:
     kind: Service
     name: {{ .Values.name | quote }}
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: 2019-05-20T11:48:51Z
+      status: "True"
+      type: Admitted
+    host: httpd-example-jenkinspoc.apps.anupala.com
+    routerName: router
+    wildcardPolicy: None

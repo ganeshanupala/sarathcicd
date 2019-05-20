@@ -21,11 +21,11 @@ pipeline {
 	      cp linux-amd64/helm /usr/bin
 	     helm init --client-only 
 	     helm version
-              helm del --purge httpd  || true
+              helm del --purge httpd-example  || true
 		oc start-build httpd-example --from-file=index.html
 		#oc start-build tomcat --from-dir=sample
 		sleep 30 
-	      helm install ./httpd --version=1.0 --name=httpd --namespace=jenkinspoc
+	      helm install ./httpd --version=1.0 --name=httpd-example --namespace=jenkinspoc
 	helm repo update 
 		
 	     # x=`oc get pods | grep httpd | cut -d " " -f1`
