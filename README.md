@@ -13,7 +13,7 @@ This README would normally document whatever steps are necessary to get your app
 * Summary of set up
 * Configuration
 * Dependencies defdf
-* Database configuration
+* Database configuration bbnk
 * How to run tests
 * Deployment instructions
 hdi
