@@ -9,6 +9,7 @@ pipeline {
               echo "xxxxxxxxxx"
               sh '''
               mvn -version
+	      mvn -B -DskipTests clean package
              # mvn package
 		echo "testing"
 		
